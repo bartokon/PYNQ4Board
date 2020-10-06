@@ -2,7 +2,7 @@
 set -e
 
 ARGCNT=$#
-#Eclypse-Z7
+#Board name
 BOARDS=$1
 #Architecture (This could be read from petalinux project I think)
 ARCH=$2 
@@ -15,7 +15,7 @@ init(){
 
 if [ "${ARGCNT}" -ne 2 ]; then
     echo "Useage:"
-    echo "./pynqforboard.sh <boardname> <pynqbranch> <arch>"
+    echo "./pynqforboard.sh <boardname> <arch>"
     echo "./pynqforboard.sh Eclypse-Z7 arm"
     exit -1
 fi
