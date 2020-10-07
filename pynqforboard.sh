@@ -35,11 +35,10 @@ fi
 }
 
 createBoardDirectoryForPynq(){
-if [ ! -d "${WDIR}/PYNQ/boards/${BOARDS}" ] 
-then
-	if [ -z "$PETALINUX" || -z "$XILINX_VIVADO"]
+if [ ! -d "${WDIR}/PYNQ/boards/${BOARDS}" ]; then
+	if [ -z "$PETALINUX" ]
 	then
-	      echo "Please source Petalinux and Vivado!"
+	      echo "Please source Petalinux!"
 	      exit -1
 	fi
 	echo 'DL_DIR = "'${WDIR}'/petalinux_cache/'${BOARDS}'/downloads/"' >> ${BOARDS}/os/project-spec/meta-user/conf/petalinuxbsp.conf
@@ -56,9 +55,9 @@ fi
 }
 
 buildBoard(){
-file="${WDIR}/PYNQ/boards/zcu104/xilinx-zcu104-v2019.1-final.bsp"
+file="${WDIR}/PYNQ/boards/ZCU104/xilinx-zcu104-v2019.1-final.bsp"
 if [ ! -e "$file" ]; then
-    	echo "Please copy xilinx-zcu104-v2019.1-final.bsp to PYNQ/boards/zcu104 folder!"
+    	echo "Please copy xilinx-zcu104-v2019.1-final.bsp to PYNQ/boards/ZCU104 folder!"
 	echo "Build could fail because lack of necessary license for some IP-cores"
   	exit -1 
 fi 
